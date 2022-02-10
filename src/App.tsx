@@ -7,7 +7,7 @@ function App() {
 
   const checkHaveMetamask = async () => {
     try {
-      const { ethereum } = window;
+      const { ethereum } = window as any;
 
       if (!ethereum) {
         console.log("don't have metamask");
@@ -34,7 +34,7 @@ function App() {
 
   const connectWallet = async () => {
     try {
-      const { ethereum } = window;
+      const { ethereum } = window as any;
 
       if (!ethereum) {
         console.log("don't have metamask");
@@ -62,7 +62,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       {
         isHaveMetamask
           ? <p>Have Metamask</p>
@@ -79,7 +79,7 @@ function App() {
           ? <button className='font-bold' onClick={disconnectWallet}>Disconnect</button>
           : <button className='font-bold' onClick={connectWallet}>Connect</button>
       }
-    </>
+    </div>
   );
 };
 
